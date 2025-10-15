@@ -26,14 +26,19 @@ const Forecast = () => {
   const averageAQI = calculateAverageAQI(mockStations);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 gradient-mesh opacity-5 pointer-events-none"></div>
+      
       <Navigation />
       <AQIBanner aqi={averageAQI} location="Delhi-NCR Average" />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6 animate-fade-in">
-          <h1 className="text-3xl font-bold text-primary mb-2">72-Hour AI Forecast</h1>
-          <p className="text-muted-foreground">Predicted air quality trends powered by machine learning</p>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        <div className="mb-8 animate-fade-in">
+          <h1 className="text-4xl font-bold text-gradient bg-gradient-to-r from-primary via-primary-glow to-primary-light mb-2">
+            72-Hour AI Forecast
+          </h1>
+          <p className="text-muted-foreground text-lg">Predicted air quality trends powered by machine learning</p>
         </div>
 
         {/* Forecast Summary Cards */}
@@ -41,40 +46,40 @@ const Forecast = () => {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-aqi-poor" />
+                <TrendingUp className="w-4 h-4 text-aqi-poor group-hover:animate-bounce" />
                 Peak AQI Expected
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">445</div>
+              <div className="text-3xl font-bold text-gradient bg-gradient-to-r from-orange-500 to-red-600 animate-pulse">445</div>
               <p className="text-xs text-muted-foreground mt-1">In 18 hours (Tomorrow 2 PM)</p>
               <Badge className="mt-2 bg-aqi-severe text-white">Severe</Badge>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <Card className="glass-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-2 border-aqi-good/20 group" style={{ animationDelay: "100ms" }}>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-aqi-good" />
+                <Calendar className="w-4 h-4 text-aqi-good group-hover:animate-pulse" />
                 Best Air Quality
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">352</div>
+              <div className="text-3xl font-bold text-gradient bg-gradient-to-r from-green-500 to-teal-600">352</div>
               <p className="text-xs text-muted-foreground mt-1">In 72 hours (Day 3)</p>
               <Badge className="mt-2 bg-aqi-verypoor text-white">Very Poor</Badge>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="glass-card hover:shadow-glow transition-all duration-500 hover:-translate-y-2 hover:scale-105 border-2 border-primary/20 group" style={{ animationDelay: "200ms" }}>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
-                <Wind className="w-4 h-4 text-primary" />
+                <Wind className="w-4 h-4 text-primary group-hover:animate-spin-slow" />
                 Improvement Factor
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">-14.6%</div>
+              <div className="text-3xl font-bold text-gradient bg-gradient-to-r from-blue-500 to-cyan-600">-14.6%</div>
               <p className="text-xs text-muted-foreground mt-1">Expected reduction over 72h</p>
               <Badge className="mt-2" variant="outline">Western winds</Badge>
             </CardContent>
@@ -82,7 +87,7 @@ const Forecast = () => {
         </div>
 
         {/* Main Forecast Chart */}
-        <Card className="mb-8 hover:shadow-xl transition-shadow animate-scale-in">
+        <Card className="mb-8 glass-card hover:shadow-glow transition-all duration-500 animate-scale-in border-2 border-primary/10 overflow-hidden group">
           <CardHeader>
             <CardTitle>AQI Forecast Trend</CardTitle>
             <CardDescription>AI-predicted air quality index for next 3 days</CardDescription>
@@ -121,8 +126,8 @@ const Forecast = () => {
         </Card>
 
         {/* Weather Factors */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in-up">
+          <Card className="glass-card hover:shadow-glow transition-all duration-500 border-2 border-primary/10 hover:scale-105">
             <CardHeader>
               <CardTitle>Temperature Correlation</CardTitle>
               <CardDescription>How temperature affects AQI</CardDescription>
@@ -153,7 +158,7 @@ const Forecast = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="glass-card hover:shadow-glow transition-all duration-500 border-2 border-primary/10 hover:scale-105" style={{ animationDelay: "100ms" }}>
             <CardHeader>
               <CardTitle>Humidity Levels</CardTitle>
               <CardDescription>Moisture content in air</CardDescription>
@@ -186,7 +191,7 @@ const Forecast = () => {
         </div>
 
         {/* AI Insights */}
-        <Card className="mt-8">
+        <Card className="mt-8 glass-card hover:shadow-glow transition-all border-2 border-primary/10 animate-fade-in">
           <CardHeader>
             <CardTitle>Forecast Insights</CardTitle>
             <CardDescription>AI-analyzed predictions and recommendations</CardDescription>

@@ -32,18 +32,23 @@ const Report = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 gradient-mesh opacity-5 pointer-events-none"></div>
+      
       <Navigation />
       <AQIBanner aqi={averageAQI} location="Delhi-NCR Average" />
       
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6 animate-fade-in">
-          <h1 className="text-3xl font-bold text-primary mb-2">Report Pollution Incident</h1>
-          <p className="text-muted-foreground">Help us track pollution sources in your area</p>
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        <div className="mb-8 animate-fade-in">
+          <h1 className="text-4xl font-bold text-gradient bg-gradient-to-r from-primary to-primary-glow mb-2">
+            Report Pollution Incident
+          </h1>
+          <p className="text-muted-foreground text-lg">Help us track pollution sources in your area</p>
         </div>
 
-        <Card className="hover:shadow-xl transition-shadow animate-scale-in">
-          <CardHeader>
+        <Card className="glass-card hover:shadow-glow transition-all duration-500 animate-scale-in border-2 border-primary/10 overflow-hidden group">
+          <CardHeader className="group-hover:bg-primary/5 transition-colors">
             <CardTitle className="flex items-center gap-2">
               <AlertCircle className="w-5 h-5 text-primary" />
               Submit a Report
@@ -118,7 +123,8 @@ const Report = () => {
                 </div>
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full shadow-glow hover:scale-105 transition-all group" size="lg">
+                <AlertCircle className="w-5 h-5 mr-2 group-hover:animate-bounce" />
                 Submit Report
               </Button>
             </form>
@@ -126,7 +132,7 @@ const Report = () => {
         </Card>
 
         {/* Recent Reports */}
-        <Card className="mt-8">
+        <Card className="mt-8 glass-card hover:shadow-glow transition-all border-2 border-primary/10 animate-fade-in-up">
           <CardHeader>
             <CardTitle>Recent Reports in Your Area</CardTitle>
             <CardDescription>Community-submitted pollution incidents</CardDescription>
@@ -137,8 +143,12 @@ const Report = () => {
                 { id: "REP-2025-1015", location: "Dwarka Sector 8", category: "Construction Dust", time: "2 hours ago", status: "Under Review" },
                 { id: "REP-2025-1012", location: "RK Puram", category: "Waste Burning", time: "5 hours ago", status: "Verified" },
                 { id: "REP-2025-1008", location: "Gurugram Sec 29", category: "Industrial", time: "1 day ago", status: "Action Taken" },
-              ].map((report) => (
-                <div key={report.id} className="p-4 bg-accent rounded-lg">
+              ].map((report, index) => (
+                <div 
+                  key={report.id} 
+                  className="p-4 glass hover:glass-card rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-md animate-slide-in-right cursor-pointer"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   <div className="flex justify-between items-start">
                     <div>
                       <p className="font-semibold">{report.location}</p>
