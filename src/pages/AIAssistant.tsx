@@ -62,7 +62,7 @@ const AIAssistant = () => {
       <AQIBanner aqi={averageAQI} location="Delhi-NCR Average" />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
+        <div className="mb-6 animate-fade-in">
           <h1 className="text-3xl font-bold text-primary mb-2 flex items-center gap-2">
             <Sparkles className="w-8 h-8" />
             AI Assistant
@@ -70,7 +70,7 @@ const AIAssistant = () => {
           <p className="text-muted-foreground">Get instant answers about air quality and health</p>
         </div>
 
-        <Card className="h-[600px] flex flex-col">
+        <Card className="h-[600px] flex flex-col hover:shadow-xl transition-shadow animate-scale-in">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <MessageSquare className="w-5 h-5 text-primary" />

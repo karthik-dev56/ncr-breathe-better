@@ -37,12 +37,12 @@ const Report = () => {
       <AQIBanner aqi={averageAQI} location="Delhi-NCR Average" />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
+        <div className="mb-6 animate-fade-in">
           <h1 className="text-3xl font-bold text-primary mb-2">Report Pollution Incident</h1>
           <p className="text-muted-foreground">Help us track pollution sources in your area</p>
         </div>
 
-        <Card>
+        <Card className="hover:shadow-xl transition-shadow animate-scale-in">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertCircle className="w-5 h-5 text-primary" />

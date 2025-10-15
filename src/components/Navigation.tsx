@@ -45,7 +45,13 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
+              <Link to="/admin">Admin</Link>
+            </Button>
+            <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
+              <Link to="/policy-maker">Policy</Link>
+            </Button>
+            <Button variant="outline" size="sm" asChild className="hover:scale-105 transition-transform">
               <Link to="/citizen">
                 <User className="w-4 h-4 mr-2" />
                 Login

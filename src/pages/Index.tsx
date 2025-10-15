@@ -24,7 +24,7 @@ const Index = () => {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <div className="mb-8 text-center">
+        <div className="mb-8 text-center animate-fade-in">
           <h1 className="text-4xl font-bold text-primary mb-4">
             Real-Time Air Quality Monitoring
           </h1>
@@ -35,8 +35,8 @@ const Index = () => {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 animate-fade-in-up">
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -49,7 +49,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: "100ms" }}>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <Activity className="w-4 h-4 text-aqi-severe" />
@@ -62,7 +62,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: "200ms" }}>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <Bell className="w-4 h-4 text-aqi-poor" />
@@ -75,7 +75,7 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{ animationDelay: "300ms" }}>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <Users className="w-4 h-4 text-primary" />
@@ -95,15 +95,15 @@ const Index = () => {
         </div>
 
         {/* Charts Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 animate-fade-in-up">
           <AQIChart />
           <PollutantBreakdown />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 animate-fade-in">
           <SourceAttribution />
           
-          <Card>
+          <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle>Health Recommendations</CardTitle>
               <CardDescription>Based on current AQI levels</CardDescription>
@@ -131,7 +131,7 @@ const Index = () => {
         </div>
 
         {/* Call to Action */}
-        <Card className="bg-primary text-primary-foreground">
+        <Card className="bg-primary text-primary-foreground animate-scale-in hover:shadow-2xl transition-shadow">
           <CardContent className="pt-6">
             <div className="text-center space-y-4">
               <h2 className="text-2xl font-bold">Help Monitor Your Community</h2>

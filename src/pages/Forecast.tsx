@@ -31,13 +31,13 @@ const Forecast = () => {
       <AQIBanner aqi={averageAQI} location="Delhi-NCR Average" />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-6">
+        <div className="mb-6 animate-fade-in">
           <h1 className="text-3xl font-bold text-primary mb-2">72-Hour AI Forecast</h1>
           <p className="text-muted-foreground">Predicted air quality trends powered by machine learning</p>
         </div>
 
         {/* Forecast Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 animate-fade-in-up">
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
@@ -52,7 +52,7 @@ const Forecast = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-aqi-good" />
@@ -82,7 +82,7 @@ const Forecast = () => {
         </div>
 
         {/* Main Forecast Chart */}
-        <Card className="mb-8">
+        <Card className="mb-8 hover:shadow-xl transition-shadow animate-scale-in">
           <CardHeader>
             <CardTitle>AQI Forecast Trend</CardTitle>
             <CardDescription>AI-predicted air quality index for next 3 days</CardDescription>

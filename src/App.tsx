@@ -9,6 +9,8 @@ import Forecast from "./pages/Forecast";
 import Report from "./pages/Report";
 import AIAssistant from "./pages/AIAssistant";
 import Citizen from "./pages/Citizen";
+import Admin from "./pages/Admin";
+import PolicyMaker from "./pages/PolicyMaker";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/report" element={<Report />} />
           <Route path="/ai-assistant" element={<AIAssistant />} />
           <Route path="/citizen" element={<Citizen />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/policy-maker" element={<PolicyMaker />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

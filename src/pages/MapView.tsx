@@ -16,11 +16,11 @@ const MapView = () => {
       <AQIBanner aqi={averageAQI} location="Delhi-NCR Average" />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-primary mb-6">Interactive AQI Heatmap</h1>
+        <h1 className="text-3xl font-bold text-primary mb-6 animate-fade-in">Interactive AQI Heatmap</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Map Placeholder */}
-          <Card className="lg:col-span-2">
+          <Card className="lg:col-span-2 hover:shadow-xl transition-shadow animate-fade-in">
             <CardHeader>
               <CardTitle>Delhi-NCR Region</CardTitle>
               <CardDescription>Click on stations to view details</CardDescription>
@@ -69,7 +69,7 @@ const MapView = () => {
           </Card>
 
           {/* Station Details */}
-          <div className="space-y-4">
+          <div className="space-y-4 animate-slide-in-right">
             <Card>
               <CardHeader>
                 <div className="flex items-center gap-2">
